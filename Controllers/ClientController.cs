@@ -17,5 +17,6 @@ namespace Teledock_Web_Application.Controllers
             IEnumerable<ClientModel> DB= database.Clients.ToList();
             return View(DB);
         }
+        public I
     }
 }
