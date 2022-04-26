@@ -17,6 +17,34 @@ namespace Teledock_Web_Application.Controllers
             IEnumerable<ClientModel> DB= database.Clients.ToList();
             return View(DB);
         }
-        public I
+
+        //GET
+        public IActionResult Creite()
+        {
+           return View();
+        }
+
+        //GET
+        public IActionResult Edit(ClientModel client)
+        {
+            
+            return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Creite(ClientModel client)
+        {
+            if (client.Inn == client.Name.ToString())
+            {
+                ModelState.AddModelError("CustomError", "ИНН и Имя совпадает");
+            }
+            client.AddDate = DateTime.Now;
+            client.UpdateDate = DateTime.Now;
+            database.Clients.Add(client);
+            database.SaveChanges();
+            return RedirectToAction("Index", "Client");
+        }
     }
 }

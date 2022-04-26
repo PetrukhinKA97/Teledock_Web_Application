@@ -8,7 +8,9 @@
             <h2 class ="text-primary">Клиенты</h2>
         </div>
         <div class="col-6 text-end" >
-            <a asp-controller="Client" asp-action="Creite" class="btn btn-primary">Создание клиента</a>
+            <a asp-controller="Client" asp-action="Creite" class="btn btn-primary">
+               <i class="bi bi-bag-plus"></i> &nbsp; Создание клиента
+            </a>
         </div>
     </div>
 
@@ -16,10 +18,19 @@
     <thead>
         <tr>
             <th>
-                Номер
+                ИНН
             </th>
             <th>
-                Название
+                Наименование
+            </th>
+            <th>
+                Тип
+            </th>
+            <th>
+                Дата добавления
+            </th>
+            <th>
+                Дата обновления
             </th>
         </tr>
     </thead>
@@ -27,11 +38,20 @@
         @foreach(var obj in Model)
         {
             <tr>
-                <td width="50%">
-                    @obj.Id
+                <td width="20%">
+                    @obj.Inn
                 </td>
-                <td width="50%">
+                <td width="20%">
                     @obj.Name
+                </td>
+                <td width="20%">
+                    @obj.Type
+                </td>
+                <td width="20%">
+                    @obj.AddDate
+                </td>
+                <td width="20%">
+                    @obj.UpdateDate
                 </td>
             </tr>
         }
