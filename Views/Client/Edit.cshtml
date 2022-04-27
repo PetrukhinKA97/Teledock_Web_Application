@@ -1,12 +1,12 @@
 ﻿@model ClientModel
 
-<form method="post">
+<form method="post" asp-action="Edit">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Создание клиента</h2>
+            <h2 class="text-primary">Изменение клиента</h2>
         </div>
         <div asp-validation-summary=All></div>
-        <div class="mb-3">
+       <div class="mb-3">
             <label asp-for="Inn">Инн</label>
             <input asp-for="Inn" class="form-control"/>
             <span asp-validation-for="Inn" class="text-danger"></span>
@@ -26,7 +26,7 @@
             <input asp-for="UcheriditelNomer" class="form-control"/>
             <span asp-validation-for="UcheriditelNomer" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px">Добавить</button>
+        <button type="submit" class="btn btn-primary" style="width:150px" >Обновить</button>
         <a asp-controller="Client" asp-action="Index" class ="btn btn-secondary" style="width:150px">Назад</a>
     </div>
 </form>

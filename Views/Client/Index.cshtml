@@ -32,6 +32,10 @@
             <th>
                 Дата обновления
             </th>
+            <th>
+                Учиредитель
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +56,17 @@
                 </td>
                 <td width="20%">
                     @obj.UpdateDate
+                </td>
+                <td width="20%">
+                    @obj.UcheriditelNomer
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Client" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2"> 
+                            <i class="bi-pencil-square"></i>  
+                            Edit
+                        </a>
+                    </div>
                 </td>
             </tr>
         }

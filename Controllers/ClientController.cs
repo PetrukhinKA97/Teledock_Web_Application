@@ -24,11 +24,35 @@ namespace Teledock_Web_Application.Controllers
            return View();
         }
 
-        //GET
+        //Get
+        public IActionResult Edit(int? id)
+        {
+
+            if (id == null||id==0)
+            {
+                return NotFound();
+            }
+            var Client=database.Clients.Find(id);
+            if (Client == null)
+            {
+                return NotFound();
+            }
+            Client.UpdateDate= DateTime.Now;
+            return View(Client);
+        }
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken] 
         public IActionResult Edit(ClientModel client)
         {
-            
-            return View();
+            if (client.Inn == client.Name.ToString())
+            {
+                ModelState.AddModelError("CustomError", "ИНН и Имя совпадает");
+            }
+            client.UpdateDate = DateTime.Now;
+            database.Clients.Update(client);
+            database.SaveChanges();
+            return RedirectToAction("Index", "Client");
         }
 
         //POST
