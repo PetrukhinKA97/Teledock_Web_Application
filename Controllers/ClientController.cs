@@ -18,12 +18,6 @@ namespace Teledock_Web_Application.Controllers
             return View(DB);
         }
 
-        //GET
-        public IActionResult Creite()
-        {
-           return View();
-        }
-
         //Get
         public IActionResult Edit(int? id)
         {
@@ -40,6 +34,7 @@ namespace Teledock_Web_Application.Controllers
             Client.UpdateDate= DateTime.Now;
             return View(Client);
         }
+       
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken] 
@@ -70,5 +65,25 @@ namespace Teledock_Web_Application.Controllers
             database.SaveChanges();
             return RedirectToAction("Index", "Client");
         }
+
+        //GET
+        public IActionResult Creite()
+        {
+            return View();
+        }
+
+        //Get
+        public IActionResult Delete(int id)
+        {
+            var client = database.Clients.Find(id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+            database.Remove(client);
+            database.SaveChanges();
+            return RedirectToAction("Index", "Client");
+        }
+
     }
 }

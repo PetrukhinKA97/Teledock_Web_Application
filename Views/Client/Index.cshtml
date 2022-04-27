@@ -64,7 +64,13 @@
                     <div class="w-75 btn-group" role="group">
                         <a asp-controller="Client" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary mx-2"> 
                             <i class="bi-pencil-square"></i>  
-                            Edit
+                            Изменить
+                        </a>
+                    </div>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Client" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-primary mx-2"> 
+                            <i class="bi-pencil-square"></i>  
+                            Удалить
                         </a>
                     </div>
                 </td>
