@@ -7,8 +7,10 @@ namespace Teledock_Web_Application.Connection
     {
         public ConnectionDatabase(DbContextOptions<ConnectionDatabase> options) : base(options)
         {
-
+            if(Database.)
+            Database.EnsureCreated();   
         }
+
         public DbSet<ClientModel> Clients { get; set; }
         public DbSet<LegalEntityModel> LegalEntity { get; set; }
         public DbSet<UcheriditelModel> Ucheriditel { get; set; }

@@ -1,23 +1,23 @@
-﻿@model ClientModel
+﻿@model UcheriditelModel
 
 <form method="post" asp-action="Edit">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary">Изменение юридического лица</h2>
+            <h2 class="text-primary">Изменение учередителя</h2>
         </div>
         <div asp-validation-summary=All></div>
        <div class="mb-3">
-            <label asp-for="Name">Название</label>
-            <input asp-for="Name" class="form-control"/>
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="Fio">ФИО</label>
+            <input asp-for="Fio" class="form-control"/>
+            <span asp-validation-for="Fio" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="UcheriditelNomer">Учередитель</label>
-            <input asp-for="UcheriditelNomer" class="form-control"/>
-            <span asp-validation-for="UcheriditelNomer" class="text-danger"></span>
+            <label asp-for="Inn">ИНН</label>
+            <input asp-for="Inn" class="form-control"/>
+            <span asp-validation-for="Inn" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px" >Обновить</button>
-        <a asp-controller="LegalEntity" asp-action="Index" class ="btn btn-secondary" style="width:150px">Назад</a>
+        <a asp-controller="Ucheriditel" asp-action="Index" class ="btn btn-secondary" style="width:150px">Назад</a>
     </div>
 </form>
 
