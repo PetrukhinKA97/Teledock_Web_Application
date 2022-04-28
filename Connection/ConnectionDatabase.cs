@@ -10,6 +10,10 @@ namespace Teledock_Web_Application.Connection
 
         }
         public DbSet<ClientModel> Clients { get; set; }
+        public DbSet<LegalEntityModel> LegalEntity { get; set; }
+        public DbSet<UcheriditelModel> Ucheriditel { get; set; }
+
+
 
     }
 }

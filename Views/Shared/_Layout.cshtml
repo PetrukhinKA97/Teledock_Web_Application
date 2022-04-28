@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Teledock_Web_Application</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Client" asp-action="Index">Teledock_Web_Application</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,10 @@
                             <a class="nav-link text-dark" asp-controller="Client" asp-action="Index">Клиенты</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"  asp-controller="Client" asp-action="Index">Клиенты2</a>
+                            <a class="nav-link text-dark"  asp-controller="LegalEntity" asp-action="Index">ЮЛ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"  asp-controller="Ucheriditel" asp-action="Index">Учередители</a>
                         </li>
                     </ul>
                 </div>
@@ -38,7 +41,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Teledock_Web_Application - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            Создал https://github.com/PetrukhinKA97
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

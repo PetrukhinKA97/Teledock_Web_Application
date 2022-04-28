@@ -22,9 +22,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\LegalEntity\" />
-    <Folder Include="Views\Ucheriditel\" />
-  </ItemGroup>
-
 </Project>

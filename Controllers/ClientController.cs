@@ -84,6 +84,5 @@ namespace Teledock_Web_Application.Controllers
             database.SaveChanges();
             return RedirectToAction("Index", "Client");
         }
-
     }
 }
