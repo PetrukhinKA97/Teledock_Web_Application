@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Teledock_Web_Application.Models
 {
-    [Keyless]
     public class LegalEntityModel
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Required]
         public string Name { get; set; }
 

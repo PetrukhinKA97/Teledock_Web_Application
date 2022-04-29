@@ -26,20 +26,21 @@ namespace Teledock_Web_Application.Controllers
             {
                 return NotFound();
             }
-            var Client = database.Clients.Find(id);
-            if (Client == null)
+            var LegalEntity = database.LegalEntity.Find(id);
+            if (LegalEntity == null)
             {
                 return NotFound();
             }
-            return View(Client);
+            IEnumerable<LegalEntityModel> DB_Ucheriditel = database.Ucheriditel.ToList();
+            return View(LegalEntity, DB_Ucheriditel);
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(LegalEntityModel client)
+        public IActionResult Edit(LegalEntityModel LegalEntity)
         {
-            database.LegalEntity.Update(client);
+            database.LegalEntity.Update(LegalEntity);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
         }
@@ -47,9 +48,9 @@ namespace Teledock_Web_Application.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Creite(LegalEntityModel client)
+        public IActionResult Creite(LegalEntityModel LegalEntity)
         {
-            database.LegalEntity.Add(client);
+            database.LegalEntity.Add(LegalEntity);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
         }
@@ -63,12 +64,12 @@ namespace Teledock_Web_Application.Controllers
         //Get
         public IActionResult Delete(int id)
         {
-            var client = database.LegalEntity.Find(id);
-            if (client == null)
+            var LegalEntity = database.LegalEntity.Find(id);
+            if (LegalEntity == null)
             {
                 return NotFound();
             }
-            database.Remove(client);
+            database.Remove(LegalEntity);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
         }
