@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Teledock_Web_Application.Connection;
 using Teledock_Web_Application.Models;
 
@@ -6,8 +7,10 @@ namespace Teledock_Web_Application.Controllers
 {
     public class LegalEntityController : Controller
     {
+        //Разобраться с бд, убрать дублирование
         private readonly ConnectionDatabase database;
 
+        //Разобраться с бд, убрать дублирование
         public LegalEntityController(ConnectionDatabase DB)
         {
             database = DB;
@@ -21,26 +24,15 @@ namespace Teledock_Web_Application.Controllers
         //Get
         public IActionResult Edit(int? id)
         {
-
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var LegalEntity = database.LegalEntity.Find(id);
-            if (LegalEntity == null)
-            {
-                return NotFound();
-            }
-            IEnumerable<LegalEntityModel> DB_Ucheriditel = database.Ucheriditel.ToList();
-            return View(LegalEntity, DB_Ucheriditel);
+            return View();
         }
 
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(LegalEntityModel LegalEntity)
+        public IActionResult Edit(LegalEntityModel client)
         {
-            database.LegalEntity.Update(LegalEntity);
+            database.LegalEntity.Update(client);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
         }
@@ -48,9 +40,9 @@ namespace Teledock_Web_Application.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Creite(LegalEntityModel LegalEntity)
+        public IActionResult Creite(LegalEntityModel client)
         {
-            database.LegalEntity.Add(LegalEntity);
+            database.LegalEntity.Add(client);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
         }
@@ -58,6 +50,8 @@ namespace Teledock_Web_Application.Controllers
         //GET
         public IActionResult Creite()
         {
+            SelectList books = new SelectList(database.Ucheriditel);
+            ViewBag.LegalEntityBag = books;
             return View();
         }
 

@@ -6,8 +6,10 @@ namespace Teledock_Web_Application.Controllers
 {
     public class ClientController : Controller
     {
+        //Разобраться с бд, убрать дублирование
         private readonly ConnectionDatabase database;
 
+        //Разобраться с бд, убрать дублирование
         public ClientController (ConnectionDatabase DB)
         {
             database= DB;
@@ -84,5 +86,6 @@ namespace Teledock_Web_Application.Controllers
             database.SaveChanges();
             return RedirectToAction("Index", "Client");
         }
+
     }
 }

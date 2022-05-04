@@ -13,12 +13,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="UcheriditelNomer">Учередитель</label>
-            <select name="companyId">
-            @foreach(var obj in Model)
-            {
-                <option value="@obj.">@comp.Name</option>
-            }
-            </select>
+            @Html.DropDownList("UcheriditelNomer", ViewBag.LegalEntityBag as SelectList)
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Обновить</button>
         <a asp-controller="LegalEntity" asp-action="Index" class="btn btn-secondary" style="width:150px">Назад</a>

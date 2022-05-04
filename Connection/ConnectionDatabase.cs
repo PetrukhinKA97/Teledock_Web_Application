@@ -6,9 +6,7 @@ namespace Teledock_Web_Application.Connection
     public class ConnectionDatabase:DbContext
     {
         public ConnectionDatabase(DbContextOptions<ConnectionDatabase> options) : base(options)
-        {
-            if(Database.)
-            Database.EnsureCreated();   
+        {  
         }
 
         public DbSet<ClientModel> Clients { get; set; }

@@ -13,8 +13,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="UcheriditelNomer">Учередитель</label>
-            <input asp-for="UcheriditelNomer" class="form-control"/>
-            <span asp-validation-for="UcheriditelNomer" class="text-danger"></span>
+            @Html.DropDownList("UcheriditelNomer", ViewBag.LegalEntityBag as SelectList)
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Добавить</button>
         <a asp-controller="LegalEntity" asp-action="Index" class ="btn btn-secondary" style="width:150px">Назад</a>
