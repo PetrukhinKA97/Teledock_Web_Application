@@ -42,6 +42,7 @@ namespace Teledock_Web_Application.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Creite(LegalEntityModel client)
         {
+            
             database.LegalEntity.Add(client);
             database.SaveChanges();
             return RedirectToAction("Index", "LegalEntity");
@@ -50,7 +51,8 @@ namespace Teledock_Web_Application.Controllers
         //GET
         public IActionResult Creite()
         {
-            SelectList books = new SelectList(database.Ucheriditel);
+
+            SelectList books = new SelectList(database.Ucheriditel.ToList(), "Fio");
             ViewBag.LegalEntityBag = books;
             return View();
         }
