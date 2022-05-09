@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="UcheriditelNomer">Учередитель</label>
-            @Html.DropDownList("Fio", ViewBag.LegalEntityBag as SelectList)
+            @Html.DropDownList("Fio", ViewBag.Teams as SelectList)
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Добавить</button>
         <a asp-controller="LegalEntity" asp-action="Index" class ="btn btn-secondary" style="width:150px">Назад</a>
