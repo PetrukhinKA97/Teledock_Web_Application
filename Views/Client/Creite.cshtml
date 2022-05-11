@@ -17,9 +17,10 @@
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Type">Тип</label>
-            <input asp-for="Type" class="form-control"/>
-            <span asp-validation-for="Inn" class="text-danger"></span>
+            <select name="Type">
+                <option value="0">ЮЛ</option>
+                <option value="1">ИП</option>
+            </select>
         </div>
         <div class="mb-3">
             <label asp-for="UcheriditelNomer">Учередитель</label>
